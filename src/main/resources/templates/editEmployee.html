@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit an Employee</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Employee Management</h1>
+        <h3>Edit an Employee</h3>
+        <hr>
+        <hr>
+
+        <form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
+            <input type="hidden" th:field="*{id}" />
+            <label><strong>Id</strong></label>
+            <p th:text="${employee.id}"></p>
+            <hr>
+
+            <input type="hidden" th:field="*{firstName}" />
+            <label><strong>First Name</strong></label>
+            <p th:text="${employee.firstName}"></p>
+            <hr>
+
+            <input type="hidden" th:field="*{lastName}" />
+            <label><strong>Last Name</strong></label>
+            <p th:text="${employee.lastName}"></p>
+            <hr>
+
+            <label><strong>Section</strong></label>
+            <input type="text" th:field="*{section}" class="form-control mb-4 col-4">
+            <hr>
+
+            <label><strong>E-mail</strong></label>
+            <input type="text" th:field="*{eMail}" class="form-control mb-4 col-4">
+            <hr>
+
+            <button type="submit" class="btn btn-info col-2">Update</button>
+
+        </form>
+        <a th:href="@{/}"> Back to Employee List</a>
+    </div>
+</div>
+
+</body>
+</html>
